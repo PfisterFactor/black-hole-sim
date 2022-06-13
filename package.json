@@ -1,0 +1,20 @@
+{
+  "name": "black-hole-sim",
+  "version": "1.0.0",
+  "description": "A black hole simulator",
+  "main": "app.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "esbuild app.ts --bundle --minify --loader:.glsl=text --outfile=build/bundle.js && npm run copy_resources",
+    "watch": "npm run copy_resources && esbuild app.ts --bundle --sourcemap --loader:.glsl=text --outfile=build/bundle.js --servedir=build",
+    "copy_resources": "cp index.html build/index.html && cp app.css build/app.css && cp -r resources build/resources"
+  },
+  "author": "Eric Pfister",
+  "license": "MIT",
+  "dependencies": {
+    "@types/three": "^0.141.0",
+    "esbuild": "^0.14.42",
+    "glsl-rotate": "^1.1.0",
+    "three": "^0.141.0"
+  }
+}
